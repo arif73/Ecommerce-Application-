@@ -23,3 +23,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('login/{service}', 'Auth\\LoginController@redirectToProvider');
+Route::get('login/{service}/callback', 'Auth\\LoginController@handleProviderCallback');
